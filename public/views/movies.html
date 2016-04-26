@@ -38,16 +38,16 @@
                             </a>
                         </div>
                         <div class="media-body">
-                            <h2 class="media-heading">{{picture.title}}
-                                <span class="badge">{{picture.rating}}</span>
+                            <h2 class="media-heading">{{picture.title | uppercase}}
+                                <span class="badge">{{picture.rating | uppercase}}</span>
                             </h2>
                             <div class="row">
                               <div class="col-xs-12 col-sm-4">
-                                  <button class="btn-primary">Add to Watchlist</button>
+                                  <button class="btn btn-primary">Add to Watchlist</button>
                               </div>
                               <div class="col-xs-12 col-sm-8">
-                                <label>Release Date: </label><span>{{picture.date}}<br></span>
-                                <label>Run Time: </label><span>{{picture.run_time}}</span>
+                                <label>Release Date: </label><span>  {{picture.date | date:mediumDate}}<br></span>
+                                <label>Run Time: </label><span>  {{picture.run_time}}</span>
                               </div>
                             </div>
                         </div>
