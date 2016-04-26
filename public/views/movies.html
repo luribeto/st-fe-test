@@ -34,7 +34,7 @@
                     <li class="media" dir-paginate="picture in pictures | itemsPerPage:5 | filter:search | orderBy:sortKey">
                         <div class="media-left media-middle">
                             <a ui-sref="app.moviedetails({slug: picture.slug})">
-                            <img class="media-object img-thumbnail" ng-src={{picture.image}} alt="{{picture.name}}">
+                            <img class="media-object img-thumbnail" ng-src={{picture.image}} err-src="images/na.jpg" alt="{{picture.name}}">
                             </a>
                         </div>
                         <div class="media-body">

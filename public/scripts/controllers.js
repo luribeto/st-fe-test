@@ -14,6 +14,9 @@ angular.module('disneyApp')
                 function(response){
                     $scope.movie = response.data;
                     $scope.showMovie=true;
+                },
+                function(response) {
+                    $scope.message = "Error: "+response.status + " " + response.statusText;
                 }
             );
                         
@@ -40,6 +43,18 @@ angular.module('disneyApp')
                   }
               );
 
-        }]);
+        }])
+
+      .directive('errSrc', function() {
+        return {
+          link: function(scope, element, attrs) {
+            element.bind('error', function() {
+              if (attrs.src != attrs.errSrc) {
+                attrs.$set('src', attrs.errSrc);
+              }
+            });
+          }
+        }
+      });
 
 
