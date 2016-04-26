@@ -43,6 +43,10 @@ angular.module('disneyApp')
                   }
               );
 
+              $scope.setSortKey = function(sortKey) {
+                $scope.sortKey = sortKey;
+              }
+
         }])
 
       .directive('errSrc', function() {

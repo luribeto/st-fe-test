@@ -16,9 +16,9 @@
                 </dir-pagination-controls>
             </div>
             <div class="col-xs-12 col-sm-2 sort-dd">
-                  <select class="form-control" ng-model="sortKey">
+                  <select class="form-control" ng-model="sortKey" ng-change="setSortKey(sortKey)">
                       <option value="date">Date</option>
-                      <option value="name">Name</option>
+                      <option value="title">Name</option>
                   </select>
 
             </div>
