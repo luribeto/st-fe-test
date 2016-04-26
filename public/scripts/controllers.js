@@ -9,7 +9,7 @@ angular.module('disneyApp')
 
             $scope.movie = {};
             
-            moviesFactory.getPicture(parseInt($stateParams.slug,10))
+            moviesFactory.getPicture($stateParams.slug)
             .then(
                 function(response){
                     $scope.movie = response.data;
