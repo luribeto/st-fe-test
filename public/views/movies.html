@@ -41,8 +41,15 @@
                             <h2 class="media-heading">{{picture.title}}
                                 <span class="badge">{{picture.rating}}</span>
                             </h2>
-                            <p>{{picture.date}}</p>
-                            <p>{{picture.run_time}}</p>
+                            <div class="row">
+                              <div class="col-xs-12 col-sm-4">
+                                  <button class="btn-primary">Add to Watchlist</button>
+                              </div>
+                              <div class="col-xs-12 col-sm-8">
+                                <label>Release Date: </label><span>{{picture.date}}<br></span>
+                                <label>Run Time: </label><span>{{picture.run_time}}</span>
+                              </div>
+                            </div>
                         </div>
                     </li>
                 </ul>
