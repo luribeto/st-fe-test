@@ -1,0 +1,56 @@
+
+
+    <div class="container" ng-controller="MoviesController">
+        <div class="row">
+            <div class="col-xs-12" style="padding-top:80px">
+                <form class="form-inline">
+                    <div class="form-group">
+                          <input type="text"ng-model="search.title" class="form-control" placeholder="search"></input>
+                    </div>
+                </form>
+            <hr>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-8">
+                <dir-pagination-controls 
+                  max-size="5" 
+                  direction-links="true"
+                  boundary-links="false" >
+                </dir-pagination-controls>
+            </div>
+            <div class="col-xs-12 col-sm-4">
+                  <select class="form-control" ng-model="sortKey">
+                      <option value="date">Date</option>
+                      <option value="name">Name</option>
+                  </select>
+
+            </div>
+        </div>
+        <hr>
+        <div class="row row-content">
+            <div class="col-xs-12 col-sm-9">
+                  <div ng-if="!showPictures">
+                      <h3>{{message}}</h3>
+                  </div>
+                   <ul class="media-list" ng-if="showPictures">
+                    <!--li class="media" ng-repeat="picture in pictures | filter:search | filter:selectedYear"-->
+                    <li class="media" dir-paginate="picture in pictures | itemsPerPage:5 | filter:search | orderBy:sortKey">
+                        <div class="media-left media-middle">
+                            <a ui-sref="app.moviedetails({id: picture.slug})">
+                            <img class="media-object img-thumbnail" ng-src={{picture.image}} alt="{{picture.name}}">
+                            </a>
+                        </div>
+                        <div class="media-body">
+                            <h2 class="media-heading">{{picture.title}}
+                                <span class="small">{{picture.date}}</span>
+                                <span class="small"> {{picture.run_time}}</span>
+                            </h2>
+
+                        </div>
+                    </li>
+                </ul>
+            </div>
+       </div>
+
+    </div>
