@@ -43,7 +43,7 @@
                             </h2>
                             <div class="row">
                               <div class="col-xs-12 col-sm-4">
-                                  <button class="btn btn-primary">Add to Watchlist</button>
+                                  <button class="btn btn-primary" ng-click="addWatchlist($index)">Add to Watchlist</button>
                               </div>
                               <div class="col-xs-12 col-sm-8">
                                 <label>Release Date: </label><span>  {{picture.date | date:mediumDate}}<br></span>

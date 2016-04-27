@@ -18,13 +18,11 @@ angular.module('disneyApp')
                     {
                         var slug = $scope.movies[i].slug;
 
-                        if(slug === $stateParams.slug)
-                        {
+                        if(slug === $stateParams.slug) {
                             $scope.movie = $scope.movies[i];
                             $scope.showMovie=true;
                             break;
                         }
-
                     }
                 },
                 function(response) {
@@ -34,7 +32,7 @@ angular.module('disneyApp')
                         
         }])
 
-        .controller('MoviesController', ['$scope', 'moviesFactory', function($scope, moviesFactory) {
+        .controller('MoviesController', ['$scope', 'moviesFactory', 'watchlistFactory', function($scope, moviesFactory, watchlistFactory) {
                 
               $scope.message="Loading ...";
               $scope.showPictures = false;
@@ -59,6 +57,10 @@ angular.module('disneyApp')
                 $scope.sortKey = sortKey;
               }
 
+              $scope.addWatchlist = function($index) {
+                debugger;
+                watchlistFactory.addToWatchlist($index);
+              }
         }])
 
         .filter('runtimeToTimeStr', function() {
