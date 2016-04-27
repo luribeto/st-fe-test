@@ -33,7 +33,7 @@ angular.module('disneyApp', ['ui.router','angularUtils.directives.dirPagination'
 
             // route for the moviedetail page
             .state('app.moviedetails', {
-                url: 'items/:slug',
+                url: 'movies/:slug',
                 views: {
                     'content@': {
                         templateUrl : 'views/moviedetail.html',

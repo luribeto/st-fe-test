@@ -13,9 +13,9 @@ angular.module('disneyApp')
           return $http.get(baseURL + "items");
         };
 
-        picfac.getPicture=function(slug){
-          return $http.get(baseURL + "items/"+slug);
-        };
+        /*picfac.getPicture=function(slug){
+          return $http.get(baseURL + "items/:slug");
+        };*/
 
         return picfac;
     }]);

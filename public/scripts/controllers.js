@@ -3,17 +3,30 @@ angular.module('disneyApp')
 
 
         .controller('MovieDetailController', ['$scope', '$stateParams', 'moviesFactory', function($scope, $stateParams, moviesFactory) {
-
+debugger;
             $scope.showMovie = false;
             $scope.message="Loading ...";
+            $scope.selectedIdx = $stateParams;
 
             $scope.movie = {};
             
-            moviesFactory.getPicture($stateParams.slug)
+            moviesFactory.getPictures()
             .then(
                 function(response){
-                    $scope.movie = response.data;
-                    $scope.showMovie=true;
+                    $scope.movies = response.data;
+
+                    for(var i=0; i<$scope.movies.length; i++)
+                    {
+                        var slug = $scope.movies[i].slug;
+
+                        if(slug === $stateParams.slug)
+                        {
+                            $scope.movie = $scope.movies[i];
+                            $scope.showMovie=true;
+                            break;
+                        }
+
+                    }
                 },
                 function(response) {
                     $scope.message = "Error: "+response.status + " " + response.statusText;
@@ -29,7 +42,7 @@ angular.module('disneyApp')
 
               $scope.pictures= [];
               $scope.selectedGender = "";
-              $scope.sortKey = "name";
+              $scope.sortKey = "title";
 
 
               $scope.pictures = moviesFactory.getPictures()
