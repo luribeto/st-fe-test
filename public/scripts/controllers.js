@@ -61,6 +61,19 @@ angular.module('disneyApp')
 
         }])
 
+        .filter('runtimeToTimeStr', function() {
+            return function(runtime) {
+                var minutes = Math.floor(runtime / 60);
+                var hours = Math.floor(minutes / 60);
+                var minsPlus = minutes % 60;
+                var timeString = hours + 'hrs ';
+
+                if(minsPlus)  timeString += minsPlus + 'mins';
+                
+                return timeString;
+            }
+        })
+
       .directive('errSrc', function() {
         return {
           link: function(scope, element, attrs) {

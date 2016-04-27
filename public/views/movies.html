@@ -47,7 +47,7 @@
                               </div>
                               <div class="col-xs-12 col-sm-8">
                                 <label>Release Date: </label><span>  {{picture.date | date:mediumDate}}<br></span>
-                                <label>Run Time: </label><span>  {{picture.run_time}}</span>
+                                <label>Run Time: </label><span>  {{picture.run_time | runtimeToTimeStr:picture.run_time}}</span>
                               </div>
                             </div>
                         </div>
