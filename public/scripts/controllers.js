@@ -3,7 +3,6 @@ angular.module('disneyApp')
 
 
         .controller('MovieDetailController', ['$scope', '$stateParams', 'moviesFactory', function($scope, $stateParams, moviesFactory) {
-debugger;
             $scope.showMovie = false;
             $scope.message="Loading ...";
             $scope.selectedIdx = $stateParams;

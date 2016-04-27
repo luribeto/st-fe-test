@@ -22,11 +22,18 @@
                                 </a>
                             </div>
                             <div class="media-body">
-                                <h2 class="media-heading">{{movie.title}}
-                                 <span class="label label-danger">{{movie.rating}}</span>
-                                 <span class="badge">{{dish.price | currency}}</span></h2>
-                                <p>{{movie.date}}</p>
-                                <p>{{movie.run_time}}</p>
+                                <h2 class="media-heading">{{movie.title  | uppercase}}
+                                 <span class="label label-danger">{{movie.rating  | uppercase}}</span>
+                                </h2>
+                                  <div class="col-xs-12 col-sm-8">
+                                    <label>Release Date: </label><span>  {{movie.date | date:mediumDate}}<br></span>
+                                    <label>Run Time: </label><span>  {{movie.run_time}}</span>
+                                  </div>
+                                  <div class="col-xs-12 col-sm-8">
+                                        <button class="btn btn-primary">Add to Watchlist</button>
+                                        <button class="btn btn-primary">Preview</button>
+                                        <button class="btn btn-primary">Play</button>
+                                  </div>
                             </div>
                         </div>
                     </div>
