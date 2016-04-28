@@ -24,29 +24,42 @@ angular.module('disneyApp')
 
         var watchlistFac = {};
         //var favorites = [];
-        var watchlist = $localStorage.getObject('favorites','[]');
+        var watchlist = $localStorage.getObject('watchlist','[]');
 
-        watchlistFac.addToWatchlist = function (index) {
+        watchlistFac.addToWatchlist = function(slug) {
+            debugger;
             for (var i = 0; i < watchlist.length; i++) {
-                if (watchlist[i].id == index)
+                if (watchlist[i].slug == slug)
                     return;
             }
-            watchlist.push({id: index});
+            watchlist.push({slug:slug});
             $localStorage.storeObject('watchlist', watchlist);
         };
 
-        watchlistFac.deleteFromWatchlist = function (index) {
+        watchlistFac.deleteFromWatchlist = function(slug) {
             for (var i = 0; i < watchlist.length; i++) {
-                if (watchlist[i].id == index) {
+                if (watchlist[i].slug == slug) {
                     watchlist.splice(i, 1);
                 }
             }
             $localStorage.storeObject('watchlist', watchlist);
         }
 
-        watchlistFac.getWatchlist = function () {
+        watchlistFac.getWatchlist = function() {
             return watchlist;
         };
+
+        watchlistFac.isInWatchlist = function(slug) {
+
+            for(var i=0; i<watchlist.length; i++)
+            {
+                var item = watchlist[i];
+                if(item.slug == slug)
+                    return true;
+            }
+
+            return false;
+        }
 
         return watchlistFac;
     }])

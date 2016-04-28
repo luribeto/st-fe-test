@@ -57,9 +57,25 @@ angular.module('disneyApp')
                 $scope.sortKey = sortKey;
               }
 
-              $scope.addWatchlist = function($index) {
-                debugger;
-                watchlistFactory.addToWatchlist($index);
+              $scope.addWatchlist = function(slug) {
+                watchlistFactory.addToWatchlist(slug.slug);
+              }
+
+              $scope.removeWatchlist = function(slug) {
+                watchlistFactory.deleteFromWatchlist(slug.slug);
+              }
+
+              $scope.isInWatchlist = function(slug) {
+                return watchlistFactory.isInWatchlist(slug.slug);
+              }
+
+              $scope.getMovieObj = function(slug) {
+                for(var i=0; i<$scope.pictures.length; i++)
+                {
+                  var movieObj = $scope.pictures[i];
+                  if(movieObj.slug == slug)
+                      return movieObj;
+                }
               }
         }])
 
