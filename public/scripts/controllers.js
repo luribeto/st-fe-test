@@ -2,7 +2,7 @@
 angular.module('disneyApp')
 
 
-        .controller('MovieDetailController', ['$scope', '$stateParams', 'moviesFactory', function($scope, $stateParams, moviesFactory) {
+        .controller('MovieDetailController', ['$scope', '$stateParams', 'moviesFactory', 'watchlistFactory', function($scope, $stateParams, moviesFactory, watchlistFactory) {
             $scope.showMovie = false;
             $scope.message="Loading ...";
             $scope.selectedIdx = $stateParams;
@@ -29,6 +29,18 @@ angular.module('disneyApp')
                     $scope.message = "Error: "+response.status + " " + response.statusText;
                 }
             );
+
+            $scope.addWatchlist = function(slug) {
+              watchlistFactory.addToWatchlist(slug.slug);
+            }
+
+            $scope.removeWatchlist = function(slug) {
+              watchlistFactory.deleteFromWatchlist(slug.slug);
+            }
+
+            $scope.isInWatchlist = function(slug) {
+              return watchlistFactory.isInWatchlist(slug.slug);
+            }
                         
         }])
 

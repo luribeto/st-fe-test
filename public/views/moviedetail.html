@@ -30,9 +30,18 @@
                                     <label>Run Time: </label><span>  {{movie.run_time}}</span>
                                   </div>
                                   <div class="col-xs-12 col-sm-8">
-                                        <button class="btn btn-primary">Add to Watchlist</button>
+                                      <div class="col-xs-12 col-sm-4" ng-if="!isInWatchlist({slug: movie.slug})">
+                                          <button class="btn btn-primary" ng-click="addWatchlist({slug: movie.slug})">Add to Watchlist</button>
+                                      </div>
+                                      <div class="col-xs-12 col-sm-4" ng-if="isInWatchlist({slug: movie.slug})">
+                                          <button class="btn btn-primary" ng-click="removeWatchlist({slug: movie.slug})">Remove to Watchlist</button>
+                                      </div>
+                                      <div class="col-xs-12 col-sm-2">
                                         <button class="btn btn-primary">Preview</button>
+                                      </div>
+                                      <div class="col-xs-12 col-sm-3">
                                         <button class="btn btn-primary">Play</button>
+                                      </div>
                                   </div>
                             </div>
                         </div>
